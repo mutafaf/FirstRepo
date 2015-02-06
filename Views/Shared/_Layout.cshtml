@@ -1,0 +1,103 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+    <title></title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr") 
+ 
+</head>
+<body>
+
+<!-- nav bar code starts--> 
+    <nav class="navbar navbar-default">
+  
+           <nav class="collapse navbar-collapse bs-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Home" , "index" , "Home")</li>
+        <li>@Html.ActionLink("Contact" , "contactUs" , "Home")</li>
+</ul>
+      <ul class="nav navbar-nav navbar-right">
+          
+                    <li>@Html.ActionLink("Login", "login", "UserAccount")</li>
+                    <li>@Html.ActionLink("Register", "register", "UserAccount")</li>
+ 
+ 
+
+      </ul>
+  
+</nav>
+        </nav>
+<!-- nav bar code ends -->
+
+
+
+     <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h2>Welcome to   @Html.ActionLink("Educational Community","index","Home")
+        </h2>
+         <p>This is a sharing platform for geeks. You may post articles, comment over articles  </p>
+      </div>
+    </div>
+
+    
+
+       
+
+
+    <!-- sidebar code starts here-->
+
+ <div class="col-md-3">
+        
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Topics</h3>
+  </div>
+  <div class="panel-body">
+  <ul>  <li><h5>Computer Science</h5>
+      <ul>
+       <li>@Html.ActionLink("C++","cpp","Home")</li>
+            <li>@Html.ActionLink("Java","java","Home")</li>
+          
+      </ul>
+       </li>
+    <li class="active"><h5>Math</h5>
+        <ul>
+         <li>@Html.ActionLink("Geometry","geometry","Home")</li>
+            <li>@Html.ActionLink("Algebra","algebra","Home")</li>
+        </ul>
+
+    </li>
+      </ul>
+  </div>
+</div>
+       
+    </div>
+
+   
+    <!-- side bar code ends-->
+    <div class="col-md-9"> 
+        <div class="row">
+               
+
+            <!--HTML EDITING TOOL--->
+             
+
+
+            @Html.ActionLink("Post New Article" , "editHere" , "Home")
+
+          @RenderBody()
+    </div>
+        </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>

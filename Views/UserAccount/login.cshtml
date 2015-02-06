@@ -1,0 +1,43 @@
+﻿@model EducationCommunity.Models.Account
+@{
+    ViewBag.Title = "login";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2>login</h2>
+<br />
+<div class="col-md-6">
+    
+    <div class="form-horizontal">
+     <!--   
+    @(Html.BeginForm("loginTry", "Home", FormMethod.Post))
+    { <div class="col-md-7 ">
+        <div class="form-group" ><div class="form-control">
+            @Html.TextBoxFor(m => m.AccEmail, new { placeholder = "Email Address", @class="form-group"}) </div></div><br />
+        <div class="form-group"><div class="form-control">  
+          @Html.TextBoxFor(m => m.AccPassword, new { placeholder="password" ,type="password" })</div></div><br />
+   <div class="form-group">
+       <button class="btn btn-primarry btn-block col-md-3" type="submit">Sign in</button><--</div></div>
+    }
+    </div>
+    
+    -->
+
+<form class="sign-in" method="post" action="loginTry">
+        <label for="inputEmail" class="sr-only" >Email address</label>
+ 
+    
+      <input type="email" name="AccEmail" class="form-control" placeholder="Enter your Email Address" required autofocus />
+            <br />
+    <label for="inputPassword" class="sr-only" >Password</label>
+    <input type="password" name="AccPassword" class="form-control" placeholder="Enter your password here" required autofocus />
+    <br /> 
+    <div class="checkbox">
+       &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input type="checkbox" value="remember-me" />Remember me
+    <br/>
+        <br />
+        <br />
+        <button class="btn btn-primarry btn-block col-md-3" type="submit">Sign in</button>
+         </div>
+</form>
+
+   </div>

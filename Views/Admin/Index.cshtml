@@ -1,0 +1,38 @@
+﻿@model List<EducationCommunity.Models.Account> 
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Admin Panel</h1>
+<br>
+<h2>List of accounts</h2>
+<table>
+
+    <tr>
+        <td>AccID
+            </td>
+        <td>AccName</td>
+        <td>Email</td>
+        </tr>
+    @foreach (var s in @Model)
+    { 
+    <tr>
+        <td>
+            @s.AccId
+        </td>
+        <td>
+            @s.AccName
+        </td>
+        <td>
+            @s.AccEmail
+        </td>
+
+          <td>@Html.ActionLink("Update","update/"+s.AccId,"UserAccount")</td>>
+        <td>@Html.ActionLink("Delete","delete/"+s.AccId,"UserAccount")</td>
+      
+    </tr>
+    }
+   
+</table>
+

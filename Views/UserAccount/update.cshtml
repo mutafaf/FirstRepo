@@ -1,0 +1,20 @@
+﻿@model EducationCommunity.Models.Account
+@{
+    ViewBag.Title = "update";
+}
+
+<h2>update</h2>
+
+ @using (Html.BeginForm("updateUser/"+Model.AccId, "UserAccount", FormMethod.Post))
+    { 
+        @Html.Label("Email")
+                @Html.TextBoxFor(m => m.AccEmail, new { value="@Model.AccEmail"})
+     <br/>@Html.Label("Full Name")
+        
+             @Html.TextBoxFor(m => m.AccName, new {value="@Model.AccName" })<br/>
+        
+     @Html.Label("Password")
+        @Html.TextBoxFor(m => m.AccPassword, new { value="@Model.AccPassword" })<br />
+       <button class="btn btn-primarry btn-block col-md-3" type="submit">Update</button>
+     
+ }

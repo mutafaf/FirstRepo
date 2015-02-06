@@ -1,0 +1,83 @@
+﻿@model EducationCommunity.Models.Account
+@{
+    ViewBag.Title = "Register";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2>Register</h2>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+
+
+<link rel="stylesheet" href="css/style.css"/>
+
+</head>
+<body>
+
+<div class="container">
+<div class="main">
+    
+  
+    <div class="col-md-4">
+        <div class="form-horizontal">
+    @using (Html.BeginForm("registerUser", "Home", FormMethod.Post))
+    { <div class="form-group">
+                @Html.TextBoxFor(m => m.AccEmail, new { type = "Email", placeholder = "Email Address" })
+      </div>  <br />
+        <div class="form-group">
+        @Html.TextBoxFor(m => m.AccName, new { placeholder = "Full Name" })</div><br/>
+        <div class="form-group">
+        @Html.TextBoxFor(m => m.AccPassword, new { placeholder = "Password", type = "password" })</div><br />
+     <div class="form-group">
+        @Html.TextBoxFor(m => m.AccPhone, new { placeholder = "Phone Number", type = "phone" })</div><br />
+    
+        
+        <div class="form-group">
+        <button class="btn btn-primarry btn-block col-md-3" type="submit">Sign up</button>
+     </div>
+        
+   <!--
+        <div> <div>             <div class="col-md-3">
+                @Html.Label("Email", "Email Address")
+                </div>
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.AccEmail)
+            </div>
+        </div>
+        
+           <br>
+        <div>
+        <div class="col-md-3">
+            @Html.Label("Name", "Full Name")
+            </div>
+        <div class="col-md-4">
+        @Html.TextBoxFor(m => m.AccName)
+       </div>           </div>
+        
+        <br />
+
+        <div><div class="col-md-3">
+            @Html.Label("pass", "Password")
+            </div>
+        <div class="col-md-4">
+        @Html.TextBoxFor(m => m.AccPassword)
+        </div></div><br>
+ <div>       <div class="col-md-3">
+                @Html.Label("phone", "Phone")
+            </div>
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.AccPhone)
+      </div>  </div><br>
+        <div class="col-md-3"></div>
+        <input type="submit" value="Add Account">
+            
+        </div>-->
+    }
+        </div>
+    
+     </div>
+    </div>
+    </div>
+</body>
+</html>
