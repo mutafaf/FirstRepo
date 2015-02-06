@@ -1,33 +1,32 @@
-﻿@Mod include.,,,,
+﻿@model List<EducationCommunity.Models.Account>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
-
- <!--
      <table>
 
      @foreach (var s in Model)
      { 
-        <tr>
-            <td>
+        <tr class="row">
+            
+            <td class="col-sm-1">
                 @s.AccId
             </td>
-            <td>
+            <td class="col-sm-2">
                 @s.AccName
             </td>
-             <td>
+             <td class="col-sm-3">
                 @s.AccEmail
             </td> 
             
-            <td>
+            <td class="col-sm-1">
                 @Html.ActionLink("Edit", "update/"+ s.AccId, "UserAccount")
 
             </td>
 
-            <td>
+            <td class="col-sm-1">
                 @Html.ActionLink("Delete","delete/"+ s.AccId,"UserAccount")
             </td>
             <td>
@@ -36,4 +35,4 @@
         </tr>
      }
          </table>
-   -->
+   
