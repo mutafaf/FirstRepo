@@ -1,30 +1,15 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-        <title> </title>
 
 <script src="~/Scripts/jquery-1.7.1.js"></script>
  
-    <script src="~/ckeditor/ckeditor.js" type="text/javascript"></script>
 
-    <script>
-        $(document).ready(function () {
-            $("#Post2").click(function () {
-                var x = document.getElementById("noise");
 
-                alert(x.innerHTML);
-            })
-        
-        
-        });
-
-       
-
-         
-
-        </script>
-
+    
+               
+              
+              
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr") 
@@ -64,10 +49,7 @@
       </div>
     </div>
 
-    
-
-       
-
+           
 
     <!-- sidebar code starts here-->
 
@@ -101,96 +83,26 @@
 
    
     <!-- side bar code ends-->
+
+
+
+
+
+    
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                @Html.ActionLink("POST NEW ARTICLE", "editHere","Home")
+            </h4>
+        </div>
+        
+ 
+
+<div class="col-md-3"></div>
     <div class="col-md-8"> 
         <div class="row">
 
-           <form action="submit.php" onsubmit="alert('Your submitted HTML was:\n\n' + document.getElementById('noise').value); return false;">
-			<fieldset>
-          <div>
-<textarea id="noise" name="noise" class="widgEditor nothing"></textarea>
-			                <script type="text/javascript">CKEDITOR.replace('noise');</script>
-
-            </div>
-                		</fieldset>
-			<fieldset class="submit">
-                <br />
-				<input id="Post1" type="submit" class="btn btn-primary btn-md" value="Post Article" />
-			</fieldset>
-		</form>
-    
-	 
-            
-@*            
-            
-             <form action="submit.php" onsubmit="alert('Your submitted HTML was:\n\n' + document.getElementById('editor1').value); return false;" >
-            
-                
-                <div>
-                <textarea id="editor1" name="editor1" placeholder="Write your article here.."></textarea>
-                <script type="text/javascript">CKEDITOR.replace('editor1');</script>
-
-            </div>
-            <br />
-             <button type="button" class="btn btn-primary" aria-label="Left Align">
-             <!--   <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> -->Post Article      
-            </button>
-               </form>*@
-
-      @*      <!--HTML EDITING TOOL--->
-            
-            @Html.ActionLink("Post New Article" , "editHere" , "Home")
-
-
-
-            <div class="panel-group" id="accordion">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                    <span class="glyphicon glyphicon-file"></span>&nbsp;POST NEW ARTICLE</a>
-            </h4>
-        </div>
-        <div id="collapseOne" class="panel-collapse collapse">
-            <div class="panel-body">
-                <form method="post" action="/Home/saveArticle" id="postArticle">
-
-                    <!-- for jquery server side form verification -->
-                    <input name="__RequestVerificationToken" type="hidden" value="wj9NYFZwa1NyMmsnDaDwldGhmxW1LFKgy7IybN3UzsrZ2QSKuJPDbPD-lu9i1etA4xgYR8oehIapVg2-TzUMXz7ax4AeRK7-Dy9zCndbpao1" />
-                    
-
-                    <input data-val="true" data-val-number="The field pId must be a number." data-val-required="The pId field is required." id="pId" name="pId" type="hidden" value="" />
-                    <div class="form-group"> 
-                        <input autofocus="" class="form-control" data-val="true" data-val-required="Title field is required." id="name" name="Name" placeholder="Title" type="text" value="" />
-                        <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <textarea class="textarea form-control" cols="20" data-val="true" data-val-required="Content field is required." id="content" name="Content" placeholder="Enter your text ..." rows="5">
-</textarea>
-                        <span class="field-validation-valid" data-valmsg-for="Content" data-valmsg-replace="true"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="tags">
-                            Tags</label>
-                        <input class="form-control" data-val="true" data-val-required="Tags field is required and It should be space separated." id="tags" name="tags" placeholder="Example: C++ architecture compilers" type="text" value="" />
-                        <span class="field-validation-valid" data-valmsg-for="tags" data-valmsg-replace="true"></span>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success btn-sm" id="saveArticle">
-                            <span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;Save</button>
-                          </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-</div>*@
-
-
-
-          @RenderBody()
-    </div>
-        </div>
+    @RenderBody()
+</div></div>        
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
