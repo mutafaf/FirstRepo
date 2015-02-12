@@ -3,32 +3,56 @@
     ViewBag.Title = "Register";
 }
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+    @Scripts.Render("~/bundles/jquery")
+
+
+<script>
+    function func() {
+        var fnm = $('#emailBox').val();
+         // validation of username
+        $.getJSON("/UserAccount/validateEmail?un=" + fnm, function (data) {
+            if (data) {
+               alert("Username available");
+               $('#pSuccess').show();
+            }
+            else {
+                alert("username not available");
+
+                 $('#pFail').show();
+            }
+        }
+)
+    }
+</script>
+    
 <h2>Register</h2>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Registration Form</title>
 
 
-<link rel="stylesheet" href="css/style.css"/>
-
-</head>
-<body>
 
 <div class="container">
 <div class="main">
     
   
     <div class="col-md-4">
-        <div class="form-horizontal">
+        < class="form-horizontal">
     @using (Html.BeginForm("registerUser", "UserAccount", FormMethod.Post))
-    { <div class="form-group">
-                @Html.TextBoxFor(m => m.AccEmail, new { type = "Email", placeholder = "Email Address" })
+    {
+        @Html.ValidationSummary(false);
+        <div class="form-group">
+                @Html.TextBoxFor(m => m.AccEmail, new { id="emailBox",type = "Email", placeholder = "Email Address",required="required" })
+             <input type="button" id="chkBtn" value="Check Availability" onclick="func()">
       </div>  <br />
+        <p id="pSuccess" hidden style="color:green"  > UserName available</p>
+        
+        <p  style="color:red" id="pFail" hidden >Username not available</p>
         <div class="form-group">
-        @Html.TextBoxFor(m => m.AccName, new { placeholder = "Full Name" })</div><br/>
+        @Html.TextBoxFor(m => m.AccName, new { placeholder = "Username",required="required" })
+           
+        </div><br/>
         <div class="form-group">
-        @Html.TextBoxFor(m => m.AccPassword, new { placeholder = "Password", type = "password" })</div><br />
+        @Html.TextBoxFor(m => m.AccPassword, new { placeholder = "Password", type = "password" ,required="required"})</div><br />
      <div class="form-group">
         @Html.TextBoxFor(m => m.AccPhone, new { placeholder = "Phone Number", type = "phone" })</div><br />
     
@@ -78,6 +102,4 @@
     
      </div>
     </div>
-    </div>
-</body>
-</html>
+    

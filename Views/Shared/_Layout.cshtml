@@ -8,30 +8,35 @@
 
  
 
+  @*  @{
+        var v = Session["name"] as string;
+        if(v!=null)
+        {
+           *@<script>
+
+               // $('#btnCancel').hide();
+
+               $(document).ready(function () {
+                   $('#btnPost').click(function () {
+                       $('#btnPost').hide();
+                       $('#choopi').show();
+                       //$('#divCancel').show();
+                   });
+
+                   $('#btnCancel').click(function () {
+                       $('#btnPost').show();
+                       $('#choopi').hide();
+                       //$('#divCancel').hide();
+                   });
 
 
-
-    <script>
-
-        // $('#btnCancel').hide();
-
-        $(document).ready(function () {
-            $('#btnPost').click(function () {
-                $('#btnPost').hide();
-                $('#choopi').show();
-                //$('#divCancel').show();
-            });
-
-            $('#btnCancel').click(function () {
-                $('#btnPost').show();
-                $('#choopi').hide();
-                //$('#divCancel').hide();
-            });
+               });
+            </script>
+ 
+     
 
 
-        });
-    </script>
-
+  
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -54,7 +59,7 @@
                  
 
                  @{
-                      var x= Session["name"]  as string;              
+                     var x = Session["name"] as string;
                      if (x != null)
                      {    <li><a id="uName" href="/UserAccount/register" > @x </a></li>
                     
@@ -110,7 +115,10 @@
                         <h5>Computer Science</h5>
                         <ul>
                             <li>@Html.ActionLink("C++", "cpp", "Home")</li>
+                            <li>@Html.ActionLink("Objective-C", "objC", "Home")</li>
                             <li>@Html.ActionLink("Java", "java", "Home")</li>
+                            <li>@Html.ActionLink("C#", "cSharp", "Home")</li>
+                            <li>@Html.ActionLink("Assembly", "assembly", "Home")</li>
 
                         </ul>
                     </li>
@@ -119,6 +127,7 @@
                         <ul>
                             <li>@Html.ActionLink("Geometry", "geometry", "Home")</li>
                             <li>@Html.ActionLink("Algebra", "algebra", "Home")</li>
+                            <li>@Html.ActionLink("Trigonometry", "trigonometry", "Home")</li>
                         </ul>
 
                     </li>
@@ -146,19 +155,16 @@
 
             <div id="choopi" hidden>
 
+                 
+                <form method="post" action="/Home/postArticle">
+                   <div class="row">
+                    <div class="col-md-9">
 
-                @*<div id="accordion">
-         <h3>Post New Article</h3>
-      <div>
-
-          <p>*@
-                <form class="sign-in" method="post" action="/Home/postArticle">
                     <label for="ArticleHeading" class="sr-only">ArticleHeading</label>
 
                     <input type="text" class="form-control" name="ArticleHeading" placeholder="Enter Article Heading" required autofocus />
-                    <br>
-                    <div class="row">
-                        <div class="col-md-5">
+                   </div>
+                        <div class="col-md-3">
 
                             <label for="ArticleCategory" class="sr-only">ArticleCategory</label>
 
@@ -169,18 +175,9 @@
                                 <option>Geometry</option>
                                 <option>Algebra</option>
                             </select>
-
-
-                        </div>
-                        <div class="col-md-4">
-                            <label for="ArticlePoster" class="sr-only">ArticlePoster</label>
-
-
-
-                            <input type="text" class="form-control" name="ArticlePoster" placeholder="User Id" required autofocus />
-
-                        </div>
-                    </div>
+                         
+                    </div></div>
+                    
                     <br>
                     <fieldset>
                         <textarea id="noise" name="ArticleText" class="widgEditor nothing"></textarea>
@@ -217,10 +214,12 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <div class="col-lg-12">
+    
+     <div class="col-lg-12">
 
         <!-- footer -->
-        <footer class="footer">
+         
+        <footer class="footer" style="margin-top:3%">
             <nav class="navbar navbar-default">
 
                 <nav style="color: white; margin-left: 40%" class="collapse navbar-collapse bs-navbar-collapse">

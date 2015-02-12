@@ -5,6 +5,11 @@
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 <h2>login</h2>
 <br />
+
+
+<div class="container">
+<div class="main">
+    
 <div class="col-md-6">
     
     <div class="form-horizontal">
@@ -23,13 +28,14 @@
     -->
 
 <form class="sign-in" method="post" action="loginTry">
+    @Html.ValidationSummary()
         <label for="inputEmail" class="sr-only" >Email address</label>
  
     
-      <input type="email" name="AccEmail" class="form-control" placeholder="Enter your Email Address" required autofocus />
+      <input type="email" name="AccEmail" class="form-control" placeholder="Enter your Email Address" required />
             <br />
     <label for="inputPassword" class="sr-only" >Password</label>
-    <input type="password" name="AccPassword" class="form-control" placeholder="Enter your password here" required autofocus />
+    <input type="password" name="AccPassword" class="form-control" placeholder="Enter your password here" required  />
     <br /> 
     <div class="checkbox">
        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input type="checkbox" value="remember-me" />Remember me
@@ -41,3 +47,6 @@
 </form>
 
    </div>
+    </div>
+    </div>
+    </div>
