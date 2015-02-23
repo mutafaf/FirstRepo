@@ -61,21 +61,25 @@
                  @{
                      var x = Session["name"] as string;
                      if (x != null)
-                     {    <li><a id="uName" href="/UserAccount/register" > @x </a></li>
+                     {    <li><a id="uName" href="#" > @x </a></li>
                     
                     <li><a id="logoutBtnMain" href="/UserAccount/logout">Logout</a></li>
                      
                     <script>
+                        $('#btPst').show();
+
                         $('#loginBtnMain').remove();
                         $('#regBtn').remove();
+                     
                      </script>
                      
                      }
                      else
                      {
                     <script>
-                        $('#logoutBtnMain').remove();
 
+                          $('#logoutBtnMain').remove();
+                      
                     </script>
                        <li><a id="regBtn" href="/UserAccount/register">Register</a></li>
                     <li><a id="loginBtnMain" href="/UserAccount/login">Login</a></li>
@@ -94,7 +98,7 @@
         <div class="container">
             <h2>Welcome to   @Html.ActionLink("Educational Community", "index", "Home")
             </h2>
-            <p>This is a sharing platform for geeks. You may post articles, comment over articles  </p>
+            <p>A sharing platform for geeks, post articles and share your knowledge.  </p>
         </div>
     </div>
 
@@ -114,9 +118,9 @@
                     <li>
                         <h5>Computer Science</h5>
                         <ul>
-                            <li>@Html.ActionLink("C++", "cpp", "Home")</li>
                             <li>@Html.ActionLink("Objective-C", "objC", "Home")</li>
-                            <li>@Html.ActionLink("Java", "java", "Home")</li>
+                            <li>@Html.ActionLink("C++", "cpp", "Home")</li>
+                             <li>@Html.ActionLink("Java", "java", "Home")</li>
                             <li>@Html.ActionLink("C#", "cSharp", "Home")</li>
                             <li>@Html.ActionLink("Assembly", "assembly", "Home")</li>
 
@@ -143,14 +147,18 @@
 
 
 
+    
+                 @{
+                     var y = Session["name"] as string;
+                     if (y != null)
+                     { 
+                 
 
-
-
-    <div class="col-md-8">
+    <div class="col-md-8" id="pdiv" >
         <div class="row">
-
+            <div id="btPst" >
             <input id="btnPost" type="submit" class="btn btn-primary btn-md" value="Post Article" />
-            <br />
+            </div><br />
 
 
             <div id="choopi" hidden>
@@ -170,12 +178,19 @@
 
 
                             <select id="Category" class="form-control" name="ArticleCategory">
-                                <option>C++</option>
-                                <option>Java</option>
-                                <option>Geometry</option>
-                                <option>Algebra</option>
+                                <option value="objc">Objective-c</option>
+                                <option value="cpp">C++</option>
+                                <option value="java">Java</option>
+                                 <option value="csharp">C#</option>
+                                 <option value="assembly">Assembly</option>
+                                <option value="geometry">Geometry</option>
+                                <option value="algebra">Algebra</option>
+                               <option value="trigonometry">Trigonometry</option>
+
                             </select>
-                         
+                            <div hidden> 
+                          <input type="text" class="form-control" name="ArticlePoster" value="@Session["id"]"  /> 
+                                </div>
                     </div></div>
                     
                     <br>
@@ -197,13 +212,23 @@
                     </fieldset>
                 </form>
 
-
-                @*            </p>  
-        </div>*@
+                  
             </div>
         </div>
     </div>
+                     
+                  
+                     }
+                     else
+                     {
+                    <script>
 
+                        $('#pdiv').remove();
+                      
+                    </script>
+                 }
+                 }
+                     
     <div class="col-md-3"></div>
     <div class="col-md-8">
         <div class="row">
@@ -224,11 +249,11 @@
 
                 <nav style="color: white; margin-left: 40%" class="collapse navbar-collapse bs-navbar-collapse">
 
-                    <a href="error.html">report error</a>
+                    <a href="/Home/contactUs">feedback</a>
                     <span>| </span>
-                    <a href="error.html">contact</a>
+                    <a href="https://www.about.me/mutafaf">about me</a>
                     <span>| </span>
-                    <a href="error.html">join us</a>
+                    <a href="https://pk.linkedin.com/in/mutafaf">linkedIn</a>
                     <span>| </span>
                     <a href="https://www.twitter.com/mutaffaf">twitter</a>
                     <span>| </span>

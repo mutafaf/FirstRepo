@@ -1,6 +1,44 @@
-﻿@{
+﻿@model List<EducationCommunity.Models.Article>
+
+@{
     ViewBag.Title = "assembly";
 }
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
-<h2>Assembly</h2>
+<h1>Assembly Programming Tutorial</h1>
+<div>
+<p>Assembly language is a low-level programming language for a computer or other programmable device specific to a particular computer architecture in contrast to most high-level programming languages, which are generally portable across multiple systems. Assembly language is converted into executable machine code by a utility program referred to as an assembler like NASM, MASM, etc.</p>
+</div>
+<h1>Audience</h1>
+<p>This tutorial has been designed for software programmers with a need to understand the Assembly programming language starting from scratch. This tutorial will give you enough understanding on Assembly programming language from where you can take yourself to higher level of expertise.</p>
+<h1>Prerequisites</h1>
+<p>Before proceeding with this tutorial, you should have a basic understanding of Computer Programming terminologies. A basic understanding of any of the programming languages will help you in understanding the Assembly programming concepts and move fast on the learning track.</p>
+<h1>Assembly Programming online</h1>
+<p>For most of the examples given in this tutorial, you will find <b>Try it</b> option, so just make use of it and enjoy your learning.</p>
+<p>Try the following example using <b>Try it</b> option available at the top right corner of the below sample code box:</p>
+<pre class="prettyprint tryit">
+section	.text
+    global _start   ;must be declared for linker (ld)
+_start:	            ;tells linker entry point
+    mov	edx,len     ;message length
+    mov	ecx,msg     ;message to write
+    mov	ebx,1       ;file descriptor (stdout)
+    mov	eax,4       ;system call number (sys_write)
+    int	0x80        ;call kernel
+	
+    mov	eax,1       ;system call number (sys_exit)
+    int	0x80        ;call kernel
+
+section	.data
+msg db 'Hello, world!', 0xa  ;our dear string
+len equ $ - msg     ;length of our dear string
+</pre>
+<h2>1 - Assembly Programming Quick Reference Guide</h2>
+<p>A quick reference guide for Assembly Programmers.</p>
+<p><a href="/assembly_programming/assembly_quick_guide.htm">Assembly Programming Quick Reference Guide</a></p>
+<h2>2 - Useful Assembly Programming  Resources</h2>
+<p>A collection of <i>Assembly Programming</i> Sites, Books and Articles is given at this page.</p>
+<p><a href="/assembly_programming/assembly_useful_resources.htm">Useful Assembly Programming Resources</a></p>
+<h2>3 - Assembly Programming Tutorial in PDF</h2>
+<p>Download a quick Assembly tutorial in PDF format.</p>
+<p><a href="/assembly_programming/assembly_pdf_version.htm">Assembly Tutorial in PDF</a></p>

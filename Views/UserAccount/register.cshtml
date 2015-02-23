@@ -14,11 +14,11 @@
          // validation of username
         $.getJSON("/UserAccount/validateEmail?un=" + fnm, function (data) {
             if (data) {
-               alert("Username available");
+           //    alert("Username available");
                $('#pSuccess').show();
             }
             else {
-                alert("username not available");
+//                alert("username not available");
 
                  $('#pFail').show();
             }
